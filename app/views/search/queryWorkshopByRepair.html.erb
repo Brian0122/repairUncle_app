@@ -1,0 +1,40 @@
+
+
+<% if @workshops != nil%>
+  <div class="span11">
+  <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+    <% @workshops.each do |workshop| %>
+    <h3><a href="#"><%= workshop.name %></a></h3>
+    <div>
+      <% if workshop.address != nil && !workshop.address.empty?%>
+      <div id="address"> Address <br>
+        <%= workshop.address %> 
+        <a href=https://maps.google.com/maps?q=<%= workshop.address %> > (View Map In Google) </a>
+      </div>
+      <br>
+      <% end %>
+
+      <% if workshop.opening_hours != nil && !workshop.opening_hours.empty? %>
+      <div> Opening Hours <br>
+      <%= workshop.opening_hours %>
+      </div>
+      <br>
+      <% end %>
+
+      <% if workshop.contact_numbers != nil && !workshop.contact_numbers.empty? %>
+      <div> Contact <br>
+      <%= workshop.contact_numbers %>
+      </div>
+      <br>
+      <% end %>
+
+      <% if workshop.website != nil && !workshop.website.empty? %>
+      <div> Website <br>
+      <a href =  <%= workshop.website %>><%= workshop.website %></a>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+ </div>
+<% end %>

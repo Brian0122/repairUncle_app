@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <title>RepairUncle</title>
+  <script type="text/javascript"
+    src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+</head>
+<body>
+<header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </nav>
+    </header>
+<div class="container"> 
+      <div class="leaderboard">
+          <h1>REPAIR UNCLE</h1> 
+      </div> 
+</div>
+<div id="main" role="main">
+      <div class="container">
+
+        <div class="content">
+           <div class="row">
+            <div class="span11">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+
+        </div>
+        <hr>  
+<footer>  
+<p>© Replaid.co 2012</p>  
+</footer>
+      </div> 
+      <!--! end of .container -->
+    </div> <!--! end
+
+</body>
+</html>

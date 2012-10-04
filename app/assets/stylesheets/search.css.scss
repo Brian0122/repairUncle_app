@@ -1,0 +1,32 @@
+// Place all the styles related to the search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#repairResult {
+	padding-left: 30px;
+    padding-top: 10px;
+    z-index: 0;
+}
+
+#searchField, #searchBtn {
+	padding-top: 10px;
+}
+
+#price {
+  text-align: center;
+  padding: 20px;
+}
+
+#find_workshop {
+    display:block;
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:200px;
+    margin-bottom: 10px;
+}
+
+#map_canvas { 
+	height: 100px; 
+	weight: 100px;
+}

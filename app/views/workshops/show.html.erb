@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @workshop.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @workshop.address %>
+</p>
+
+<p>
+  <b>Contact person:</b>
+  <%= @workshop.contact_person %>
+</p>
+
+<p>
+  <b>Contact numbers:</b>
+  <%= @workshop.contact_numbers %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @workshop.website %>
+</p>
+
+<p>
+  <b>Opening hours:</b>
+  <%= @workshop.opening_hours %>
+</p>
+
+<p>
+  <b>Is premium:</b>
+  <%= @workshop.is_premium %>
+</p>
+
+
+<%= link_to 'Edit', edit_workshop_path(@workshop), :class => 'btn btn-success' %> 
+<%= link_to 'Back', workshops_path , :class => 'btn btn-warning'%>

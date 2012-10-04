@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: repairs
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  parts      :string(255)
+#  terms      :string(255)
+#  price      :float
+#  model_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  parts: MyString
+  terms: MyString
+  price: 1.5
+  model_id: 1
+
+two:
+  name: MyString
+  parts: MyString
+  terms: MyString
+  price: 1.5
+  model_id: 1

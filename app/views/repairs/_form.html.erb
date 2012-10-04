@@ -1,0 +1,39 @@
+<%= form_for(@repair) do |f| %>
+  <% if @repair.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@repair.errors.count, "error") %> prohibited this repair from being saved:</h2>
+
+      <ul>
+      <% @repair.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :parts %><br />
+    <%= f.text_field :parts %>
+  </div>
+  <div class="field">
+    <%= f.label :terms %><br />
+    <%= f.text_field :terms %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :model_id %><br />
+    <%= f.select :model_id, Model.all.map{ |c| [c.name, c.id] } %>
+    
+  </div>
+  <div class="actions">
+    <%= f.submit :class => 'btn btn-info' %>
+  </div>
+<% end %>

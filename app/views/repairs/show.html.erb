@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @repair.name %>
+</p>
+
+<p>
+  <b>Parts:</b>
+  <%= @repair.parts %>
+</p>
+
+<p>
+  <b>Terms:</b>
+  <%= @repair.terms %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @repair.price %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @repair.model.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_repair_path(@repair), :class => 'btn btn-success' %>
+<%= link_to 'Back', repairs_path, :class => 'btn btn-warning' %>

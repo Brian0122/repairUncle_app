@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: workshops
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  address         :string(255)
+#  contact_person  :string(255)
+#  contact_numbers :string(255)
+#  website         :string(255)
+#  opening_hours   :string(255)
+#  is_premium      :boolean
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  address: MyString
+  contact_person: MyString
+  contact_numbers: MyString
+  website: MyString
+  opening_hours: MyString
+  is_premium: false
+
+two:
+  name: MyString
+  address: MyString
+  contact_person: MyString
+  contact_numbers: MyString
+  website: MyString
+  opening_hours: MyString
+  is_premium: false

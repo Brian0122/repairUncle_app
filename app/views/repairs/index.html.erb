@@ -1,0 +1,36 @@
+<h1>Listing repairs</h1>
+
+<table class="table table-striped table-condensed">
+  <tr>
+    <th>Name</th>
+    <!--
+    <th>Parts</th>
+    <th>Terms</th>
+    <th>Price</th>
+-->
+    <th>Model</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @repairs.each do |repair| %>
+  <tr>
+    <td><%= repair.name %></td>
+    <!--
+    <td><%= repair.parts %></td>
+    <td><%= repair.terms %></td>
+    <td><%= repair.price %></td>
+    -->
+    <td><%= repair.model.name %></td>
+    <td><%= link_to 'Show', repair, :class => 'btn btn-primary'  %></td>
+    <td><%= link_to 'Edit', edit_repair_path(repair) , :class => 'btn btn-success'%></td>
+    <td><%= link_to 'Destroy', repair, method: :delete, 
+    data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'  %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Repair', new_repair_path, :class => 'btn btn-info' %>

@@ -1,0 +1,79 @@
+
+<div class="row">  
+
+<%= form_tag('/search/query/') do -%>
+  <% if false %>
+  <div class='selectBox'>
+    <span class='selected'></span>
+    <span class='selectArrow'>&#9660</span>
+    <div class="selectOptions" >
+      <% @makes.each do |m| %>
+        <span class="selectOption" value='<%= m.id %>'><%= m.name %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='selectBox'>
+    <span class='selected'></span>
+    <span class='selectArrow'>&#9660</span>
+    <div class="selectOptions" >
+      <% @makes.each do |m| %>
+        <span class="selectOption" value='<%= m.id %>' disabled><%= m.name %></span>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+ 
+<div class="span3 offset3">
+  <span class="field">
+  <%= select_tag :make_id, options_from_collection_for_select(@makes, "id", "name"),
+  :prompt => "- Select Make -", :id => 'make', :class => 'styled-select',
+  :placeholder => '.span2' %>
+</div>
+<div class="span3">
+  <span class="field" id="model_span">
+  <%= select_tag :model_id, '',
+  :prompt => "- Select Model -",:id => 'model', :disabled => 'disabled',  
+  :class => 'selectBox' %>
+  </span>
+</div>
+
+<div class="span6 offset3" id="searchField">
+  <div class="field">
+    <%= text_field_tag :repair, nil, :placeholder => 'Enter repair item...',
+    :id => 'repair', :disabled => 'disabled',  :class => 'input-xxlarge search-query'%>
+  </div>
+</div>
+<div class="span1" id="searchBtn">
+  <div><%= submit_tag 'Go Search!' , :id => "queryBtn", :disabled => 'disabled',
+   :class => 'btn btn-primary'%>
+  </div>
+  </div>
+
+</br>
+
+<% if @repairs != nil%>
+  <div class="span11" id="repairResult">
+  <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+    <% @repairs.each do |repair| %>
+    <h3><a href="#"><%= repair.name %></a></h3>
+    <div>
+      <div id="price"><h2> <%= repair.price %> </h2></div>
+      <div id="part"> Parts <br>
+      <%= repair.parts %>
+      </div>
+      <br>
+      <div id="trem"> Terms <br>
+      <%= repair.terms %>
+      </div>
+      <div id="find_workshop">
+      <%= link_to 'Find Workshops', queryWorkshopByRepair_search_index_path(:repair_id => repair.id), :class => 'btn btn-success' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+ </div>
+<% end %>
+<% end -%>
+
+

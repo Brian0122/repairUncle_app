@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @repairs.each do |repair| %>
+  <tr>
+    <td><%= repair.name %>
+   <%= link_to 'Find Workshops', queryWorkshopByRepair_search_index_path(:repair_id => repair.id) %>
+   </td>
+  </tr>
+<% end %>
+</table>

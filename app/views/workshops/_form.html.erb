@@ -1,0 +1,54 @@
+<%= form_for(@workshop) do |f| %>
+  <% if @workshop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
+
+      <ul>
+      <% @workshop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_person %><br />
+    <%= f.text_field :contact_person %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_numbers %><br />
+    <%= f.text_field :contact_numbers %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :opening_hours %><br />
+    <%= f.text_field :opening_hours %>
+  </div>
+  <div class="field">
+    <%= f.label :is_premium %><br />
+    <%= f.check_box :is_premium %>
+  </div>
+  <div class="field">
+    <%= f.label :repairs %><br />
+  </div>
+  <div class="field">
+  
+  
+  <%= select_tag :repairs, options_from_collection_for_select(@repairs, "id", "name"), 
+  :multiple => true, :size => 10, :class => 'multiselect' %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => 'btn btn-info' %>
+  </div>
+<% end %>
