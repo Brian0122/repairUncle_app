@@ -44,28 +44,9 @@ class WorkshopsController < ApplicationController
     @workshop = Workshop.find(params[:id])
     @allRepair = Repair.all
     @selectedRepairs = findRepairByWorkshopId(params[:id])
-
+    #@repairsms2side__dx = @selectedRepairs
     ### selected id
-    @selectedRepairIds = []
-    if @selectedRepairs.size != 0
-      @selectedRepairs.each do |sr|
-          @selectedRepairIds << sr.id
-      end
-    end
-
-    @rr = "<select class='multiselect' name='repairs[]' size='10' multiple>"
-    if @allRepair.size != 0
-      
-      @allRepair.each do |r|
-        if @selectedRepairIds.include? r.id
-          @rr  = @rr + "<option value = '" + (r.id).to_s() + "' selected>" + r.name + "</option>"
-        else
-          @rr  = @rr + "<option value = '" + (r.id).to_s() + "'>" + r.name + "</option>"
-        end
-      end
-    else
-    end
-    @rr = @rr + "</select>"
+    @rr = findAvailableAndSelectedRepair @allRepair,@selectedRepairs
 
     #@rr = "<select class='multiselect'><option value='3' selected> test </option> <option value='4'>test3</option></select>"
   end
@@ -150,6 +131,11 @@ class WorkshopsController < ApplicationController
             #flash[:alert] = @workshop.errors.to_a
             #format.html { redirect_to edit_workshop_url}
             logger.info('$$$$$')
+            @allRepair = Repair.all
+            @selectedRepairs = findRepairByWorkshopId(params[:id])
+     
+            ### selected id
+            @rr = findAvailableAndSelectedRepair @allRepair,@selectedRepairs
             format.html { render action: "edit" }
             format.json { render json: @workshop.errors, status: :unprocessable_entity }
           end
@@ -195,5 +181,30 @@ class WorkshopsController < ApplicationController
   private 
   def findRepairByWorkshopId(workshopId)
     Repair.joins('INNER JOIN repair_workshops rw ON repairs.id=rw.repair_id where rw.workshop_id = ' + workshopId)
+  end
+
+  def findAvailableAndSelectedRepair(allRepair,selectedRepairs)
+    @allRepair = allRepair
+    @selectedRepairs = selectedRepairs
+    @selectedRepairIds = []
+    if @selectedRepairs.size != 0
+      @selectedRepairs.each do |sr|
+          @selectedRepairIds << sr.id
+      end
+    end
+
+    @rr = "<select class='multiselect' name='repairs[]' size='10' multiple>"
+    if @allRepair.size != 0
+      
+      @allRepair.each do |r|
+        if @selectedRepairIds.include? r.id
+          @rr  = @rr + "<option value = '" + (r.id).to_s() + "' selected>" + r.name + "</option>"
+        else
+          @rr  = @rr + "<option value = '" + (r.id).to_s() + "'>" + r.name + "</option>"
+        end
+      end
+    else
+    end
+    @rr = @rr + "</select>"
   end
 end

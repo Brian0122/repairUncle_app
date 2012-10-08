@@ -10,12 +10,13 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//require multiselect/js/plugins/localisation/jquery.localisation-min
+//require multiselect/js/plugins/scrollTo/jquery.scrollTo-min
+//require multiselect/js/ui.multiselect
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
 //= require search
 //= require jquery-ui.min
-//= require multiselect/js/plugins/localisation/jquery.localisation-min
-//= require multiselect/js/plugins/scrollTo/jquery.scrollTo-min
-//= require multiselect/js/ui.multiselect
+//= require jquery.multiselect2side/js/jquery.multiselect2side
 

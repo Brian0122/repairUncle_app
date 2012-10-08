@@ -13,6 +13,7 @@
  *= require jquery.ui.accordion
  *= require multiselect/ui.multiselect
  *= require multiselect/common
+ *= require jquery.multiselect2side/css/jquery.multiselect2side
  */
 @import url(http://reset5.googlecode.com/hg/reset.min.css);
 

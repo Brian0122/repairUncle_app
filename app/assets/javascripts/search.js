@@ -17,8 +17,14 @@ $(function(){
   
   
   $('#test').html($('#test').text())
-  $(".multiselect").multiselect({
+  
+  $(".multiselect").multiselect2side({'search': 'Search: ',
+    moveOptions: false,
+    autoSort: true,
+    autoSortAvailable: true
   });
+  //$(".multiselect").multiselect({
+  //});
   //initialize();
   //codeAddress('台北市光復南路102號');
   $( "#accordion" ).accordion();
