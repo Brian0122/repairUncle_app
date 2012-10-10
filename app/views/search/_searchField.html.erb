@@ -1,0 +1,69 @@
+<div class="row" id="searchRow">  
+<%= form_tag('/search/query/') do %>
+  <% if false %>
+  <div class='selectBox'>
+    <span class='selected'></span>
+    <span class='selectArrow'>&#9660</span>
+    <div class="selectOptions" >
+      <% @makes.each do |m| %>
+        <span class="selectOption" value='<%= m.id %>'><%= m.name %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='selectBox'>
+    <span class='selected'></span>
+    <span class='selectArrow'>&#9660</span>
+    <div class="selectOptions" >
+      <% @makes.each do |m| %>
+        <span class="selectOption" value='<%= m.id %>' disabled><%= m.name %></span>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+<div id="searchArea">
+<div class="span3 offset2">
+  <span class="field">
+  <%= select_tag :make_id, options_from_collection_for_select(@makes, "id", "name"),
+  :prompt => "- Select Make -", :id => 'make', :class => 'styled-select',
+  :placeholder => '.span2' %>
+</div>
+<div class="span3">
+  <span class="field" id="model_span">
+  <%= select_tag :model_id, '',
+  :prompt => "- Select Model -",:id => 'model', :disabled => 'disabled',  
+  :class => 'selectBox' %>
+  </span>
+</div>
+
+<div class="span6 offset2" id="searchField">
+  <div class="field">
+    <img src='/assets/tool.png' id="repairImg"/> 
+    <%= text_field_tag :repair, nil, :placeholder => 'Enter type of repair for e.g: Engine Oil Change',
+    :id => 'repairField', :disabled => 'disabled',  
+    :class => 'input-xxlarge search-query'%>
+  </div>
+</div>
+<div class="span1" id="searchBtn">
+  <div><%= image_submit_tag 'search.png',
+  :id => "queryBtn", :disabled => true %>
+  </div>
+  
+</div>
+
+<% if @makeName %>
+<div class="span6" id = "qryInfo">
+  <div class="css_table_tr">
+    <div class="css_td"> <img src='/assets/tag.png'></div>
+  </div>
+  <div class="css_table_tr">
+     <h4 id="makeName"> <%= @makeName %> </h4> 
+     <h4 id="modelName"> <%= @modelName %> </h4>
+     <h4 id="repairName"> <%= @qryRepair %> </h4>
+  </div>
+</div>
+<% end %>
+
+</div>
+<% end %>
+</div>

@@ -2,14 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#repairResult {
-	padding-left: 30px;
-    padding-top: 10px;
+#repairResult,#workshopResult {
+	//padding-left: 30px;
+    margin-top: 50px;
     z-index: 0;
+    //margin-top: 70px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 #searchField, #searchBtn {
-	padding-top: 10px;
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#searchArea {
+    margin-top:20px;
+}
+
+#searchRow {
+    width: 90%;
+    margin: 0px auto;
 }
 
 #price {
@@ -22,11 +35,65 @@
     position:absolute;
     bottom:0;
     right:0;
-    width:200px;
+    width:120px;
     margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 #map_canvas { 
 	height: 100px; 
 	weight: 100px;
+}
+
+#repairImg {
+    position:absolute;
+    z-index:0;
+    height:25px;
+    margin-top:2.5px;
+    margin-left:2px;
+}
+
+#queryBtn {
+    height: 30px;
+}
+
+#searchBtn {
+    margin-left: 10px;
+}
+
+#repairField {
+    text-indent:20px;
+}
+
+#qryInfo {
+    display:table;
+    margin-top: 30px;
+    margin-left: 250px;
+
+    #makeName {
+        //position: absolute;
+        z-index: 1;
+        margin-left: 35px;
+    }
+    #modelName {
+        //position: absolute;
+        z-index: 1;
+        margin-left: 150px;
+    }
+
+    #repairName {
+        //position: absolute;
+        z-index: 1;
+        margin-left: 280px;
+    }
+
+    img {
+        //position: absolute;
+    }
+}
+.css_tr {
+    display: table-row;
+}
+.css_td {
+    display: table-cell;
 }

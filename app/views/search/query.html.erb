@@ -1,16 +1,24 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+</br>
 
-<% @repairs.each do |repair| %>
-  <tr>
-    <td><%= repair.name %>
-   <%= link_to 'Find Workshops', queryWorkshopByRepair_search_index_path(:repair_id => repair.id) %>
-   </td>
-  </tr>
+<% if @repairs != nil%>
+  <div class="span11" id="repairResult">
+  <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+    <% @repairs.each do |repair| %>
+    <h3><a href="#"><%= repair.name %></a></h3>
+    <div>
+      <div id="price"><h2> <%= repair.price %> </h2></div>
+      <div id="part"> Parts <br>
+      <%= repair.parts %>
+      </div>
+      <br>
+      <div id="trem"> Terms <br>
+      <%= repair.terms %>
+      </div>
+      <div id="find_workshop">
+      <%= link_to 'Find Workshops', queryWorkshopByRepair_search_index_path(:repair_id => repair.id), :class => 'btn btn-success' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+ </div>
 <% end %>
-</table>

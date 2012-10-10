@@ -46,13 +46,13 @@ $(function(){
             $('#model_span').html(promptStr);
             $('#model').selectbox();
             $('#model').selectbox('disable');
-            $('#repair').val('');
-            $('#repair').attr('disabled',true);
+            $('#repairField').val('');
+            $('#repairField').attr('disabled',true);
             $('#queryBtn').attr('disabled',true);
         }
         else{
             $('#model').attr('disabled',false);
-            $('#repair').attr('disabled',false);
+            $('#repairField').attr('disabled',false);
             $('#queryBtn').attr('disabled',false);
         $.ajax({
             type: "GET",

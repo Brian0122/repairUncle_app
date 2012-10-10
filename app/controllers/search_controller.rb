@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+	layout 'index', :only => [:index]
 	def index
 	    @makes = Make.all
 	    logger.info('%%%%%%')
@@ -13,10 +14,11 @@ class SearchController < ApplicationController
 		logger.info(params[:make_id])
 		logger.info(params[:model_id])
 		logger.info(params[:repair])
-		qryRepair = params[:repair]
-        
-		if qryRepair != nil
-            repairList = qryRepair.split(" ")
+		@qryRepair = params[:repair]
+		@makeName = Make.find(params[:make_id]).name
+        @modelName = Model.find(params[:model_id]).name
+		if @qryRepair != nil
+            repairList = @qryRepair.split(" ")
 		end
         
         baseSqlStr = 'select r.* from repairs r, models m where r.model_id = m.id and r.model_id = ' + params[:model_id];
@@ -69,8 +71,10 @@ class SearchController < ApplicationController
 
 	def queryWorkshopByRepair
 		@repair_id = params[:repair_id]
-		logger.info('$$$$$')
-		
+		#@qryRepair = params[:repair]
+		#@makeName = Make.find(params[:make_id]).name
+        #@modelName = Model.find(params[:model_id]).name
+		@makes = Make.all
 		if @repair_id != nil
 		   logger.info(@repair_id)
 		   @workshops = Workshop.joins('INNER JOIN repair_workshops rw ON workshops.id=rw.workshop_id').where('rw.repair_id = ?', @repair_id)	
