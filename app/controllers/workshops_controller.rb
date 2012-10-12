@@ -2,6 +2,8 @@ class WorkshopsController < ApplicationController
   # GET /workshops
   # GET /workshops.json
   before_filter :authenticate_user!
+  layout 'admin'
+  
   def index
     @workshops = Workshop.all
 

@@ -1,5 +1,7 @@
 class RepairsController < ApplicationController
   before_filter :authenticate_user!
+  layout 'admin'
+
   # GET /repairs
   # GET /repairs.json
   def index

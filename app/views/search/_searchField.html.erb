@@ -22,13 +22,13 @@
   </div>
   <% end %>
 <div id="searchArea">
-<div class="span3 offset2">
+<div class="span3 offset2" id='makeSelect'>
   <span class="field">
   <%= select_tag :make_id, options_from_collection_for_select(@makes, "id", "name"),
   :prompt => "- Select Make -", :id => 'make', :class => 'styled-select',
   :placeholder => '.span2' %>
 </div>
-<div class="span3">
+<div class="span3" id="modelSelect">
   <span class="field" id="model_span">
   <%= select_tag :model_id, '',
   :prompt => "- Select Model -",:id => 'model', :disabled => 'disabled',  
@@ -51,16 +51,20 @@
   
 </div>
 
+<!--
+<div class="span10" id="underLine"><hr></div>
+-->
 <% if @makeName %>
 <div class="span6" id = "qryInfo">
-  <div class="css_table_tr">
-    <div class="css_td"> <img src='/assets/tag.png'></div>
-  </div>
-  <div class="css_table_tr">
-     <h4 id="makeName"> <%= @makeName %> </h4> 
+  <div class="css_tr">
+    <div class="css_td"> <img src='/assets/tag.png'>
+    
+     <h4 id="makeName"> <%= @makeName %> </h4>
      <h4 id="modelName"> <%= @modelName %> </h4>
      <h4 id="repairName"> <%= @qryRepair %> </h4>
+   </div>
   </div>
+  
 </div>
 <% end %>
 

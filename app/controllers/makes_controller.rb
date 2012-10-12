@@ -1,6 +1,7 @@
 # encoding: utf-8
 class MakesController < ApplicationController
   before_filter :authenticate_user!
+  layout 'admin'
   # GET /makes
   # GET /makes.json
   def index

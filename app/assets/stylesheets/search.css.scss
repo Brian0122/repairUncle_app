@@ -12,7 +12,7 @@
 }
 
 #searchField, #searchBtn {
-	margin-top: 20px;
+	margin-top: 40px;
     margin-bottom: 20px;
 }
 
@@ -23,6 +23,8 @@
 #searchRow {
     width: 90%;
     margin: 0px auto;
+    height: 280px;
+    margin-top: 20px;
 }
 
 #price {
@@ -67,28 +69,31 @@
 
 #qryInfo {
     display:table;
-    margin-top: 30px;
-    margin-left: 250px;
-
+    margin-top: 10px;
+    margin-left: 230px;
+    margin-bottom: 20px;
+    //position: relative;
+    //z-index: 1;
     #makeName {
-        //position: absolute;
+        position: absolute;
         z-index: 1;
-        margin-left: 35px;
+        left: 270px;
     }
     #modelName {
-        //position: absolute;
+        position: absolute;
         z-index: 1;
-        margin-left: 150px;
+        left: 380px;
     }
 
     #repairName {
-        //position: absolute;
+        position: absolute;
         z-index: 1;
-        margin-left: 280px;
+        left: 510px;
     }
-
+    
     img {
-        //position: absolute;
+        position: relative;
+        z-index: 0;
     }
 }
 .css_tr {
@@ -96,4 +101,15 @@
 }
 .css_td {
     display: table-cell;
+    h4 {
+        display: inline;
+    }
+}
+
+#underLine {
+    width:90%;
+}
+
+#makeSelect,#modelSelect {
+    margin-top:30px;
 }

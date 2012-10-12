@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 	layout 'index', :only => [:index]
 	def index
-	    @makes = Make.all
+	    @makes = Make.find(:all , :order => 'name')
 	    logger.info('%%%%%%')
 	    respond_to do |format|
             format.html # index.html.erb
@@ -50,14 +50,14 @@ class SearchController < ApplicationController
         #    logger.info("*****")
         #    logger.info(result.body)
         #end
-        @makes = Make.all
+        @makes = Make.find(:all , :order => 'name')
         respond_to do |format|
             format.html {render action:'index'}
         end 
 	end
 
 	def queryModelByMakeId
-		@models = Model.find_all_by_make_id(params[:make_id])
+		@models = Model.order('name').find_all_by_make_id(params[:make_id])
 		@optionStr = '<select name="model_id" id="model">'
 		@models.each { |m|  
             @optionStr = @optionStr + '<option value=\'' + m.id.to_s + '\'>' + m.name + ' </option>'
@@ -71,10 +71,11 @@ class SearchController < ApplicationController
 
 	def queryWorkshopByRepair
 		@repair_id = params[:repair_id]
-		#@qryRepair = params[:repair]
-		#@makeName = Make.find(params[:make_id]).name
-        #@modelName = Model.find(params[:model_id]).name
-		@makes = Make.all
+		#@qryRepair = params[:qryRepair]
+		@makeName = params[:make]
+        @modelName = params[:model]
+		@makes = Make.find(:all , :order => 'name')
+		@qryRepair = Repair.find(@repair_id).name
 		if @repair_id != nil
 		   logger.info(@repair_id)
 		   @workshops = Workshop.joins('INNER JOIN repair_workshops rw ON workshops.id=rw.workshop_id').where('rw.repair_id = ?', @repair_id)	

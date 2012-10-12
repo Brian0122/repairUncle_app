@@ -18,7 +18,7 @@
 @import url(http://reset5.googlecode.com/hg/reset.min.css);
 
  .content {
-  background-color: #eee;
+  background-color: #DBDCDC;
   padding: 20px;
   //margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 0 0 6px 6px;
@@ -45,15 +45,15 @@
 }
 
 .row {
+  position: relative;
 	margin-top: 20px;
   height: 100%;
   background-color: #FFF;
-  -webkit-border-radius: 5px;
-  -moz-box-shadow:3px 3px 4px #000;
-  -webkit-box-shadow:3px 3px 4px #000;
-  //-webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
+  -moz-box-shadow:0 0 10px 1px #000;
+  -webkit-box-shadow:0 0 10px 1px #000;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
   //-webkit-box-shadow: 0 3px 2px rgba(0,0,0,.15);
   //-moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   //box-shadow: 0 1px 2px rgba(0,0,0,.15);

@@ -18,7 +18,7 @@
       <%= repair.terms %>
       </div>
       <div id="find_workshop">
-      <%= link_to image_tag('find.png'), queryWorkshopByRepair_search_index_path(:repair_id => repair.id) %>
+      <%= link_to image_tag('find.png'), queryWorkshopByRepair_search_index_path(:repair_id => repair.id,:make => @makeName, :model => @modelName,:qryRepair => @qryRepair) %>
       </div>
     </div>
     <% end %>
