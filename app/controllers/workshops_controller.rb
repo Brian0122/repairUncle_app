@@ -200,9 +200,9 @@ class WorkshopsController < ApplicationController
       
       @allRepair.each do |r|
         if @selectedRepairIds.include? r.id
-          @rr  = @rr + "<option value = '" + (r.id).to_s() + "' selected>" + r.name + "</option>"
+          @rr  = @rr + "<option value = '" + (r.id).to_s() + "' selected>" + r.name + " ("+ r.model.name + ")</option>"
         else
-          @rr  = @rr + "<option value = '" + (r.id).to_s() + "'>" + r.name + "</option>"
+          @rr  = @rr + "<option value = '" + (r.id).to_s() + "'>" + r.name + " ("+ r.model.name + ")</option>"
         end
       end
     else

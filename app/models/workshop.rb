@@ -18,6 +18,6 @@ class Workshop < ActiveRecord::Base
   attr_accessible :id, :address, :contact_numbers, :contact_person, :is_premium, :name, :opening_hours, :website 
   has_many :repair_workshops
   has_many :repairs, :through => :repair_workshops
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
   validates :address, :presence => true
 end
